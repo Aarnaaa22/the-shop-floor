@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Viewer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-meta">Product Catalog</div>
+    <h1>The <em>Shop</em> Floor</h1>
+  </div>
+  <div class="header-meta" id="header-count"></div>
+</header>
+
+<div class="controls">
+  <label for="minPrice">Min Price</label>
+  <div class="price-input-wrap">
+    <span>$</span>
+    <input type="number" id="minPrice" placeholder="0" min="0" step="0.01" />
+  </div>
+  <button class="btn btn-primary" onclick="applyFilter()">Filter</button>
+  <button class="btn btn-ghost" onclick="resetFilter()">Reset</button>
+  <span id="active-badge"></span>
+</div>
+
+<div class="summary-bar">
+  <div class="count" id="count-label"></div>
+  <select class="sort-select" id="sortSelect" onchange="renderProducts()">
+    <option value="default">Sort: Default</option>
+    <option value="price-asc">Price: Low → High</option>
+    <option value="price-desc">Price: High → Low</option>
+    <option value="name-asc">Name: A → Z</option>
+    <option value="stock-desc">Stock: Most first</option>
+  </select>
+</div>
+
+<div class="grid" id="product-grid"></div>
+
+<div class="console-section">
+  <div class="console-header">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <span>console — product-viewer.js</span>
+  </div>
+  <div class="console-body" id="console-body"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
